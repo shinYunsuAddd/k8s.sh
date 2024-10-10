@@ -68,6 +68,7 @@ EOF
             sudo systemctl start firewalld
             sudo systemctl enable firewalld
         fi
+        
 
         read -p "Master(M) 또는 Worker(W) 노드를 설정하시겠습니까? (M/W): " NODE_TYPE
 
@@ -109,8 +110,7 @@ elif [ "$OS" == "Darwin" ]; then
     # IP Forwarding 활성화
     sudo sysctl -w net.inet.ip.forwarding=1
 
-    # 브리지 네트워크 필터링 활성화 (맥OS에서는 불필요하지만 참고용으로 둡니다)
-    sudo modprobe br_netfilter || echo "br_netfilter 모듈을 로드할 수 없습니다."
+
 
 else
     echo "지원하지 않는 운영체제입니다."
